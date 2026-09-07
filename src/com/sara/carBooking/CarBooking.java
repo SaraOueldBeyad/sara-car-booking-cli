@@ -18,8 +18,9 @@ public class CarBooking {
     private LocalDate endDate;
     private BigDecimal price;
     private LocalDateTime bookedAt;
+    private BookingStatus status;
 
-    public CarBooking(UUID id, User user, Car car, LocalDate startDate, LocalDate endDate, BigDecimal price, LocalDateTime bookedAt) {
+    public CarBooking(UUID id, User user, Car car, LocalDate startDate, LocalDate endDate, BigDecimal price, LocalDateTime bookedAt, BookingStatus status) {
         this.id = id;
         this.user = user;
         this.car = car;
@@ -27,6 +28,7 @@ public class CarBooking {
         this.endDate = endDate;
         this.price = price;
         this.bookedAt = bookedAt;
+        this.status = status;
     }
 
     public UUID getId() {
@@ -85,6 +87,14 @@ public class CarBooking {
         this.bookedAt = bookedAt;
     }
 
+    public BookingStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(BookingStatus status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "CarBooking{" +
@@ -95,17 +105,18 @@ public class CarBooking {
                 ", endDate=" + endDate +
                 ", price=" + price +
                 ", bookedAt=" + bookedAt +
+                ", status=" + status +
                 '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof CarBooking that)) return false;
-        return Objects.equals(id, that.id) && Objects.equals(user, that.user) && Objects.equals(car, that.car) && Objects.equals(startDate, that.startDate) && Objects.equals(endDate, that.endDate) && Objects.equals(price, that.price) && Objects.equals(bookedAt, that.bookedAt);
+        return Objects.equals(id, that.id) && Objects.equals(user, that.user) && Objects.equals(car, that.car) && Objects.equals(startDate, that.startDate) && Objects.equals(endDate, that.endDate) && Objects.equals(price, that.price) && Objects.equals(bookedAt, that.bookedAt) && status == that.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, car, startDate, endDate, price, bookedAt);
+        return Objects.hash(id, user, car, startDate, endDate, price, bookedAt, status);
     }
 }
