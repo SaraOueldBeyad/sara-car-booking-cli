@@ -98,14 +98,14 @@ public class CarBooking {
     @Override
     public String toString() {
         return "CarBooking{" +
-                "id=" + id +
-                ", user=" + user +
-                ", car=" + car +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                ", price=" + price +
-                ", bookedAt=" + bookedAt +
-                ", status=" + status +
+                "\nid=" + id +
+                ", \nuser=" + user +
+                ", \ncar=" + car +
+                ", \nstartDate=" + startDate +
+                ", \nendDate=" + endDate +
+                ", \nprice=" + price +
+                ", \nbookedAt=" + bookedAt +
+                ", \nstatus=" + status +
                 '}';
     }
 

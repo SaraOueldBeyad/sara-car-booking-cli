@@ -18,18 +18,16 @@ public class CarDAO {
         };
     }
 
-    public static Car[] getCars() {
+    public Car[] getCars() {
         return cars;
     }
 
-    public static Car getCarById(UUID id){
-        Car carById = null;
+    public Car getCarById(UUID id){
         for (int i = 0; i < cars.length; i++) {
             if (cars[i].getId().equals(id)){
-                carById = cars[i];
-                break;
+                return cars[i];
             }
         }
-        return carById;
+        return null;
     }
 }

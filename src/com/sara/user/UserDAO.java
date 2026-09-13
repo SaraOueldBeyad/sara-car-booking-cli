@@ -16,18 +16,16 @@ public class UserDAO {
         };
     }
 
-    public static User[] getUsers() {
+    public User[] getUsers() {
         return users;
     }
 
-    public  static User getUserById(UUID id){
-        User userById = null;
+    public  User getUserById(UUID id){
         for (int i = 0; i < users.length; i++) {
             if (users[i].getId().equals(id)){
-                userById = users[i];
-                break;
+                return users[i];
             }
         }
-        return userById;
+        return null;
     }
 }
