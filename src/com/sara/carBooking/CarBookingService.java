@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 import java.util.UUID;
 
 public class CarBookingService {
@@ -95,5 +96,28 @@ public class CarBookingService {
         }
     }
 
+    public Car[] getAvailableCars() {
+        Car[] cars = carDao.getCars();
+        Car[] carTemp = new Car[cars.length];
+        int count = 0;
+        boolean isActive = false;
+        CarBooking[] bookings = carBookingDAO.getAllBookings();
 
+        for (int i = 0; i < cars.length; i++) {
+            isActive = false;
+            for (int j = 0; j < bookings.length; j++) {
+                if (bookings[j].getCar().getId().equals(cars[i].getId()) && bookings[j].getStatus().equals(BookingStatus.ACTIVE)){
+                    isActive = true;
+                    break;
+                }
+            }
+            if (!isActive){
+                carTemp[count] = cars[i];
+                count++;
+            }
+        }
+
+        carTemp = Arrays.copyOf(carTemp, count);
+        return carTemp;
+    }
 }
