@@ -17,7 +17,7 @@ import java.util.UUID;
 
 public class Main {
     static void main() {
-//        CarService cars = new CarService();
+        CarService cars = new CarService();
 ////        System.out.println("Car Booking CLI");
 ////        System.out.println(CarDAO.getCarById(UUID.fromString("9b2e4f61-7c3a-48d5-912f-65a831c720de")));
 ////        System.out.println(UserDAO.getUserById(UUID.fromString("8ca51d2b-aaaf-4bf2-834a-e02964e10fc3")));
@@ -106,18 +106,22 @@ public class Main {
 //            System.out.println(e.getMessage());
 //        }
 
-        try {
-            myBooking = carBookingService.bookCar(UUID.fromString("8ca51d2b-aaaf-4bf2-834a-e02964e10fc3"),
-                    UUID.fromString("a5d3c761-28f9-4b40-8e16-93c7f2a54d81"),
-                    LocalDate.of(2026, 9, 14),
-                    LocalDate.of(2026, 9, 15));
-        } catch (IllegalArgumentException e){
-            System.out.println(e.getMessage());
-        } catch (IllegalStateException e) {
-            System.out.println(e.getMessage());
-        }
+//        try {
+//            myBooking = carBookingService.bookCar(UUID.fromString("8ca51d2b-aaaf-4bf2-834a-e02964e10fc3"),
+//                    UUID.fromString("a5d3c761-28f9-4b40-8e16-93c7f2a54d81"),
+//                    LocalDate.of(2026, 9, 14),
+//                    LocalDate.of(2026, 9, 15));
+//        } catch (IllegalArgumentException e){
+//            System.out.println(e.getMessage());
+//        } catch (IllegalStateException e) {
+//            System.out.println(e.getMessage());
+//        }
+//
+//        for (Car car : carBookingService.getAvailableCars()){
+//            System.out.println(car.toString());
+//        }
 
-        for (Car car : carBookingService.getAvailableCars()){
+        for (Car car : cars.getElectricCars()){
             System.out.println(car.toString());
         }
 
